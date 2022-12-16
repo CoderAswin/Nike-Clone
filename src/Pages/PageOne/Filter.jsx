@@ -278,7 +278,7 @@ const Filter = ({filter}) => {
                             </Box>
                         </Box>
 
-                        <Box sx={{ display: { lg: "none", md: "none", sm: "flex", xs: "flex" }, justifyContent: { sm: "space-between", xs: "space-between" }, alignItems: { sm: "center", xs: "center" } }}>
+                        <Box sx={{ display: { lg: "none", md: "none", sm: "flex", xs: "flex" }, justifyContent: { sm: "space-between", xs: "space-evenly" }, alignItems: { sm: "center", xs: "center" } }}>
                             <Typography>424 Results</Typography>
                             <IconButton onClick={() => setMobileOpen(!mobileOpen)} sx={{ display: { sm: "flex", xs: "flex" }, gap: { sm: "5px", xs: "5px" }, border: { sm: "2px solid #BEBCB3", xs: "2px solid #BEBCB3" }, borderRadius: { sm: "30px", xs: "30px" }, padding: { sm: "8px", xs: "8px" } }}>
                                 <Typography >Filter</Typography>
