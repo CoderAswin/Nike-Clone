@@ -2,8 +2,11 @@ import { Close, HelpOutlineOutlined, InventoryOutlined, KeyboardArrowRight, Shop
 import { Box, Button, Stack, Typography } from '@mui/material'
 import React  from 'react'
 import styled from '@emotion/styled'
+import {useNavigate} from "react-router-dom"
 
 const MobileDrawer = ({mobileOpen , setMobileOpen}) => {
+
+    const navigate = useNavigate()
 
     const MenuItems = styled(Box)(({ theme }) => ({
         display: "flex",
@@ -27,7 +30,7 @@ const MobileDrawer = ({mobileOpen , setMobileOpen}) => {
                 <Box display="flex" justifyContent="flex-end">
                     <Close onClick={() => setMobileOpen(!mobileOpen)} />
                 </Box>
-                <MenuItems>
+                <MenuItems onClick={()=>navigate("/all_shoes_men")}>
                     <Typography fontSize="25px">Men</Typography>
                     <KeyboardArrowRight />
                 </MenuItems>
