@@ -9,12 +9,12 @@ const Top = () => {
     return (
         <>
             <Toolbar>
-                <Stack mt={11}  direction="row" spacing={{lg:120 , md:60}}>
+                <Stack mt={11}  direction="row" spacing={{lg:120 , md:65 , sm:35 , xs:10}}>
                     <Box>
                         <Typography variant='h5'>Mens Shoes(427)</Typography>
                     </Box>
                     <Box sx={{display:"flex"}}>
-                        <Box mr={6} onClick={()=>setFilter(!filter)} display="flex" alignItems="center">
+                        <Box mr={{lg:6 , md:5 , sm:3 , xs:4}} onClick={()=>setFilter(!filter)} display="flex" alignItems="center">
                             <Typography >{filter ?"Hide Filters" : "Show Filters"}</Typography>
                             <IconButton>
                                 <Sort />
