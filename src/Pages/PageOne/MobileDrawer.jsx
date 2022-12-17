@@ -50,7 +50,7 @@ const MobileDrawer = ({ mobileOpen, setMobileOpen }) => {
     return (
         <Toolbar>
             <ThemeProvider theme={theme}>
-                <Stack mt={4} spacing={4} sx={{ height: "95vh", overflowY: "auto" }}>
+                <Stack mt={10} spacing={4} sx={{ height: "95vh", overflowY: "auto" }}>
                     <Box>
                         <Stack direction="row" spacing={{ tablet: 82, mobileL: 40 , mobileM:33 , mobileS:26}}>
                             <Typography>Filter</Typography>
