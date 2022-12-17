@@ -7,32 +7,44 @@ import React from 'react'
 const Details = ({price , shoeName , imgOne , imgTwo , imgThree , imgFour , One , two , three , four , five , six , seven, eight , nine , ten}) => {
 
   const Image = styled('img')(({ theme }) => ({
-    [theme.breakpoints.only('lg')]: {
+    [theme.breakpoints.only('laptopL')]: {
         width:"434px",
       },
-      [theme.breakpoints.only('md')]: {
+      [theme.breakpoints.only('laptop')]: {
         width:"226px",
       },
-      [theme.breakpoints.only('sm')]: {
+      [theme.breakpoints.only('tablet')]: {
         width:"730px",
       },
-      [theme.breakpoints.only('xs')]: {
+      [theme.breakpoints.only('mobileL')]: {
         width:"400px",
+      },
+      [theme.breakpoints.only('mobileM')]: {
+        width:"375px",
+      },
+      [theme.breakpoints.only('mobileS')]: {
+        width:"320px",
       },
   }))
 
   const Video = styled('video')(({ theme }) => ({
-    [theme.breakpoints.only('lg')]: {
+    [theme.breakpoints.only('laptopL')]: {
         width:"434px",
       },
-      [theme.breakpoints.only('md')]: {
+      [theme.breakpoints.only('laptop')]: {
         width:"226px",
       },
-      [theme.breakpoints.only('sm')]: {
+      [theme.breakpoints.only('tablet')]: {
         width:"730px",
       },
-      [theme.breakpoints.only('xs')]: {
+      [theme.breakpoints.only('mobileL')]: {
         width:"400px",
+      },
+      [theme.breakpoints.only('mobileM')]: {
+        width:"375px",
+      },
+      [theme.breakpoints.only('mobileS')]: {
+        width:"320px",
       },
   }))
 
@@ -55,14 +67,23 @@ const Details = ({price , shoeName , imgOne , imgTwo , imgThree , imgFour , One 
     display: "grid",
     gap: "8px",
     marginTop: "5px",
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.only('laptopL')]: {
       gridTemplateColumns: "repeat(3, 120px)",
     },
-    [theme.breakpoints.only('sm')]: {
+    [theme.breakpoints.only('laptop')]: {
+      gridTemplateColumns: "repeat(3, 120px)",
+    },
+    [theme.breakpoints.only('tablet')]: {
       gridTemplateColumns: "repeat(3, 235px)",
     },
-    [theme.breakpoints.only('xs')]: {
-      gridTemplateColumns: "repeat(3, 125px)",
+    [theme.breakpoints.only('mobileL')]: {
+      gridTemplateColumns: "repeat(3, 121.6px)",
+    },
+    [theme.breakpoints.only('mobileM')]: {
+      gridTemplateColumns: "repeat(3, 104.4px)",
+    },
+    [theme.breakpoints.only('mobileS')]: {
+      gridTemplateColumns: "repeat(3, 86px)",
     },
     // gridTemplateColumns: "repeat(3, 120px)",
 
@@ -89,7 +110,7 @@ const Details = ({price , shoeName , imgOne , imgTwo , imgThree , imgFour , One 
         <Typography sx={{ color: "#757579" }}>incl. of taxes</Typography>
         <Typography sx={{ color: "#757579" }}>(Also includes all applicable duties)</Typography>
       </Box>
-      <Box  mt={12} sx={{ display: { lg: "none", md: "none", sm: "flex" , xs:"flex"}, width:{sm:"730px" , xs:"400px"} , overflowX:{sm:"auto" , xs:"auto"} , gap:{sm:"10px" , xs:"10px"} ,  marginLeft: { lg: "20px", md: "20px" } }}>
+      <Box  mt={12} sx={{ display: { laptopL: "none", laptop: "none", tablet: "flex" , mobileL:"flex" , mobileM:"flex" , mobileS:"flex"}, width:{tablet:"730px" , mobileL:"400px" , mobileM:"345px" , mobileS:"300px"} , overflowX:{tablet:"auto" , mobileL:"auto" , mobileM:"auto" , mobileS:"auto"} , gap:{tablet:"10px" , mobileL:"10px"} ,  marginLeft: { lg: "20px", laptop: "20px" } }}>
         <Image src={One} alt="" />
         <Video controls autoPlay>
           <source src={two} />
@@ -103,13 +124,13 @@ const Details = ({price , shoeName , imgOne , imgTwo , imgThree , imgFour , One 
         <Image src={nine} alt="" />
         <Image src={ten} alt="" />
       </Box>
-      <Stack spacing={1} direction="row" mt={5}>
-        <Img src={imgOne} alt="" />
-        <Img src={imgTwo} alt="" />
-        <Img src={imgThree} alt="" />
-        <Img src={imgFour} alt="" />
+      <Stack ml={{laptopL:"0px" , laptop:"0px" , tablet:"0px"}} spacing={1} direction="row" mt={5}>
+        <Img sx={{width:{mobileS:"65px"}}} src={imgOne} alt="" />
+        <Img sx={{width:{mobileS:"65px"}}}src={imgTwo} alt="" />
+        <Img sx={{width:{mobileS:"65px"}}}src={imgThree} alt="" />
+        <Img sx={{width:{mobileS:"65px"}}}src={imgFour} alt="" />
       </Stack>
-      <Stack mt={4} spacing={{ lg: 27, md: 27, sm: 70 , xs:29}} direction="row">
+      <Stack mt={4} spacing={{ laptopL: 27, laptop: 27, tablet: 70 , mobileL:28 , mobileM:21}} direction="row">
         <Typography>Select Size</Typography>
         <Typography>Size Guide</Typography>
       </Stack>
@@ -172,24 +193,24 @@ const Details = ({price , shoeName , imgOne , imgTwo , imgThree , imgFour , One 
       </Box>
 
       <Stack spacing={2} mt={1}>
-        <Button sx={{ borderRadius: "30px", padding: "20px", width: { lg: "376px", md: "376px", sm: "99%" , xs:"98%"}, backgroundColor: "#000000", "&:hover": { backgroundColor: "#757575" } }} variant='contained'>Add to Bag</Button>
-        <Button sx={{ borderRadius: "30px", padding: "20px", width: { lg: "376px", md: "376px", sm: "99%" , xs:"98%"}, backgroundColor: "#FFFFFF", color: "#000000", "&:hover": { backgroundColor: "#FFFFFF" } }} variant='contained' endIcon={<FavoriteBorder />}>Favourite</Button>
+        <Button sx={{ borderRadius: "30px", padding: "20px", width: { laptopL: "376px", laptop: "376px", tablet: "99%" , mobileL:"96%" , mobileM:"95%" , mobileS:"91%"}, backgroundColor: "#000000", "&:hover": { backgroundColor: "#757575" } }} variant='contained'>Add to Bag</Button>
+        <Button sx={{ borderRadius: "30px", padding: "20px", width: { laptopL: "376px", laptop: "376px", tablet: "99%" , mobileL:"96%", mobileM:"95%", mobileS:"91%"}, backgroundColor: "#FFFFFF", color: "#000000", "&:hover": { backgroundColor: "#FFFFFF" } }} variant='contained' endIcon={<FavoriteBorder />}>Favourite</Button>
       </Stack>
 
-      <Box mt={4} sx={{ display: { lg: "flex", sm: "flex" }, flexDirection: { lg: "column", md: "column", sm: "row" } }}>
-        <Typography sx={{ color: "#757579", marginLeft: { lg: "20px", md: "20px", sm: "130px" , xs:"30px"} }}>This product is excluded from site promotions  </Typography>
-        <Typography sx={{ marginLeft: { lg: "130px", md: "130px", sm: "8px" , xs:"140px"}, color: "#757579" }}>and discounts.</Typography>
+      <Box mt={4} sx={{ display: { laptopL: "flex", tablet: "flex" }, flexDirection: { laptopL: "column", laptop: "column", tablet: "row" } }}>
+        <Typography sx={{ color: "#757579", marginLeft: { laptopL: "20px", laptop: "20px", tablet: "130px" , mobileL:"30px"} }}>This product is excluded from site promotions  </Typography>
+        <Typography sx={{ marginLeft: { laptopL: "130px", laptop: "130px", tablet: "8px" , mobileL:"140px"}, color: "#757579" }}>and discounts.</Typography>
       </Box>
 
       <Stack mt={6} spacing={4}>
-        <Typography sx={{ display: { lg: "block", md: "block", sm: "none" } }}>
+        <Typography sx={{ display: { laptopL: "block", laptop: "block", tablet: "none" , mobileL:"none" , mobileM:"none" , mobileS:"none"} }}>
           Familiar but always fresh, the iconic Air Jordan 1 is <br />
           remastered for today's sneakerhead culture. This <br />
           Retro High OG version goes all in with premium <br />
           leather, comfortable cushioning and classic design <br />
           details.
         </Typography>
-        <Typography sx={{ display: { lg: "none", md: "none", sm: "block" , xs:"none"} }}>
+        <Typography sx={{ display: { laptopL: "none", laptop: "none", tablet: "block" , xs:"none"} }}>
           Familiar but always fresh, the iconic Air Jordan 1 isremastered for today's sneakerhead culture. This <br />
 
           Retro High OG version goes all in with premium leather, comfortable cushioning and classic design <br />

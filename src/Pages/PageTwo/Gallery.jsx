@@ -4,16 +4,18 @@ import { Stack } from '@mui/system'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import allShoeApi from '../../Api/shoes'
+import { ThemeProvider } from "@mui/material/styles"
+import theme from "../../theme"
 
 const Gallery = () => {
 
   const { id } = useParams()
 
   const Img = styled('img')(({ theme }) => ({
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.only('laptopL')]: {
       width: "434px",
     },
-    [theme.breakpoints.only('md')]: {
+    [theme.breakpoints.only('laptop')]: {
       width: "226px",
     },
     [theme.breakpoints.only('sm')]: {
@@ -25,10 +27,10 @@ const Gallery = () => {
   }))
 
   const Video = styled('video')(({ theme }) => ({
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.only('laptopL')]: {
       width: "434px",
     },
-    [theme.breakpoints.only('md')]: {
+    [theme.breakpoints.only('laptop')]: {
       width: "226px",
     },
     [theme.breakpoints.only('sm')]: {
@@ -49,28 +51,30 @@ const Gallery = () => {
 
   return (
     <Toolbar>
-      <Stack direction={{ lg: "row", md: "row", sm: "column-reverse" }} spacing={10}>
-        <Box mt={12} sx={{ display: { lg: "grid", md: "grid", sm: "none", xs: "none" }, gridTemplateColumns: { lg: "repeat(2 , 434px)", md: "repeat(2 , 226px)" }, rowGap: "10px", columnGap: "10px", marginLeft: { lg: "20px", md: "20px" } }}>
-          <Img src={One} alt="" />
-          <Video controls autoPlay>
-            <source src={two} />
-          </Video>
-          <Img src={three} alt="" />
-          <Img src={four} alt="" />
-          <Img src={five} alt="" />
-          <Img src={six} alt="" />
-          <Img src={seven} alt="" />
-          <Img src={eight} alt="" />
-          <Img src={nine} alt="" />
-          <Img src={ten} alt="" />
-        </Box>
-        <Box >
-          <Details One={One} two={two} three={three} four={four} five={five}
-            six={six} seven={seven} eight={eight} nine={nine} ten={ten}
-            price={price} shoeName={shoeName} imgOne={imgOne} imgTwo={imgTwo}
-            imgThree={imgThree} imgFour={imgFour} />
-        </Box>
-      </Stack>
+      <ThemeProvider theme={theme}>
+        <Stack direction={{ laptopL: "row", laptop: "row", tablet: "column-reverse" , mobileL:"column-reverse" , mobileM:"column-reverse" , mobileS:"column-reverse"}} spacing={10}>
+          <Box mt={12} sx={{ display: { laptopL: "grid", laptop: "grid", tablet: "none", mobileL: "none" , mobileM:"none" , mobileS:"none"}, gridTemplateColumns: { laptopL: "repeat(2 , 434px)", laptop: "repeat(2 , 226px)" }, rowGap: {laptopL:"10px" , laptop:"10px"}, columnGap: {laptopL:"10px" , laptop:"10px"}, marginLeft: { lg: "20px", laptop: "20px" } }}>
+            <Img src={One} alt="" />
+            <Video controls autoPlay>
+              <source src={two} />
+            </Video>
+            <Img src={three} alt="" />
+            <Img src={four} alt="" />
+            <Img src={five} alt="" />
+            <Img src={six} alt="" />
+            <Img src={seven} alt="" />
+            <Img src={eight} alt="" />
+            <Img src={nine} alt="" />
+            <Img src={ten} alt="" />
+          </Box>
+          <Box >
+            <Details One={One} two={two} three={three} four={four} five={five}
+              six={six} seven={seven} eight={eight} nine={nine} ten={ten}
+              price={price} shoeName={shoeName} imgOne={imgOne} imgTwo={imgTwo}
+              imgThree={imgThree} imgFour={imgFour} />
+          </Box>
+        </Stack>
+      </ThemeProvider>
     </Toolbar>
   )
 }

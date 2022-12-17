@@ -24,17 +24,23 @@ const Allshoes = ({filter}) => {
     // }))
 
     const Img = styled("img")(({ theme }) => ({
-        [theme.breakpoints.up('lg')]: {
+        [theme.breakpoints.only('laptopL')]: {
             width: filter ? "348px" : "461px",
         },
-        [theme.breakpoints.only('md')]: {
+        [theme.breakpoints.only('laptop')]: {
             width: filter ?"209.33px": "296px",
         },
-        [theme.breakpoints.only('sm')]: {
+        [theme.breakpoints.only('tablet')]: {
             width: "335px",
         },
-        [theme.breakpoints.only('xs')]: {
+        [theme.breakpoints.only('mobileL')]: {
             width: "348px",
+        },
+        [theme.breakpoints.only('mobileM')]: {
+            width: "300px",
+        },
+        [theme.breakpoints.only('mobileS')]: {
+            width: "250px",
         },
     }))
 
@@ -64,8 +70,8 @@ const Allshoes = ({filter}) => {
 
     return (
         <Toolbar>
-            {/* <ThemeProvider theme={theme}> */}
-            <Box sx={{ display: "grid", gridTemplateColumns: { lg: filter? "repeat(3, 348px)":"repeat(3, 461px)", md: filter? "repeat(3, 209.33px)":"repeat(3, 296px)" , sm: "repeat(2, 335px)", xs: "repeat(1, 348px)" }, columnGap: { lg: "15px", md: "10px", sm: "10px" }, rowGap: { lg: "60px", md: "50px", sm: "20px" }, marginTop: { lg: "35px", md: "25px", sm: "20px", xs: "10px" } }}>
+            <ThemeProvider theme={theme}>
+            <Box sx={{ display: "grid", gridTemplateColumns: { laptopL: filter? "repeat(3, 348px)":"repeat(3, 461px)", laptop: filter? "repeat(3, 209.33px)":"repeat(3, 296px)" , tablet: "repeat(2, 335px)", mobileL: "repeat(1, 348px)" , mobileM:"repeat(1, 300px)" , mobileS:"repeat(1, 250px)"}, columnGap: { laptopL: "15px", laptop: "10px", tablet: "10px" }, rowGap: { laptopL: "60px", laptop: "50px", tablet: "20px" }, marginTop: { laptopL: "35px", md: "25px", sm: "20px", xs: "10px" } }}>
                 {
                     allShoeApi.map((shoes) => (
                         <StyledLink to={`/items/${shoes.id}`}>
@@ -101,7 +107,7 @@ const Allshoes = ({filter}) => {
                         </StyledLink>
                     ))}
             </Box>
-            {/* </ThemeProvider> */}
+            </ThemeProvider>
         </Toolbar>
     )
 }
